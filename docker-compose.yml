@@ -1,0 +1,8 @@
+version: '2.1'
+
+services:
+  gohelloworld:
+    image: gohelloworld
+    build: .
+    ports:
+      - 8000:8000
