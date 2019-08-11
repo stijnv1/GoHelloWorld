@@ -44,7 +44,7 @@ func GetAzureVMs(w http.ResponseWriter, r *http.Request) {
 		var azurevm models.AzureVM
 
 		azurevm.Name = *list.Value().Name
-		azurevm.ResourceGroup = *list.Value().VMID
+		azurevm.VMID = *list.Value().VMID
 
 		azurevmlist = append(azurevmlist, azurevm)
 	}

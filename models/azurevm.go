@@ -2,8 +2,8 @@ package models
 
 //AzureVM ...
 type AzureVM struct {
-	Name          string
-	ResourceGroup string
+	Name string
+	VMID string
 }
 
 //AzureVMList ...
