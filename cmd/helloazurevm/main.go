@@ -56,12 +56,25 @@ func GetAzureVMs(w http.ResponseWriter, r *http.Request) {
 	//}
 }
 
+func GetAzureVMs_v2(w http.ResponseWriter, r *http.Request) {
+	vmClient := getVMClient()
+	vmList, err := vmClient.ListAllComplete(ctx)
+
+	if err != nil {
+		fmt.Fprint(w, "error occured")
+		return
+	}
+
+	json.NewEncoder(w).Encode((vmList.Response()))
+}
+
 func main() {
 	err := addLocalEnvAndParse()
 
 	if err == nil {
 		router := mux.NewRouter()
 		router.HandleFunc("/getazurevms", GetAzureVMs).Methods("GET")
+		router.HandleFunc("/getazurevms_v2", GetAzureVMs_v2).Methods("GET")
 		log.Fatal(http.ListenAndServe(":8000", router))
 	}
 
