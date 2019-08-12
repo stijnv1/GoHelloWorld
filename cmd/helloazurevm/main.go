@@ -61,7 +61,7 @@ func GetAzureVMs_v2(w http.ResponseWriter, r *http.Request) {
 	vmList, err := vmClient.ListAllComplete(ctx)
 
 	if err != nil {
-		fmt.Fprint(w, "error occured")
+		fmt.Fprint(w, "error occured: ", err.Error())
 		return
 	}
 

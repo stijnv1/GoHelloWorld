@@ -12,4 +12,6 @@
 *.out
 
 .env
+k8s-secrets.yml
+k8s-getazurevms.yml
 .vscode/
